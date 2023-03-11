@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
 import java.io.PrintWriter;
-public class Failihaldur{
-    private String failitee= "kontod.txt";
+public class Failihaldur {
+    private String failitee= "atm/kontod.txt";
     private String tahestik1="QWERTYUIOP{}ASDFGH JKL:ZXCVBNM<>?qwertyuiop[]asdfghjkl'zxcvbnm,./üõöäÜÕÖÄ1234567890!@#$%^&*()_+-=";
     private String tahestik2=" {}ASDFGHJKL:ZXCVBNM<>?QWERTYUIOP]asdfghjklqwertyuiop[/üõöäÜÕÖÄ1234567890'zxcvbnm,.!@#$%^&*()_+-=";
     public void Failihaldur(){
