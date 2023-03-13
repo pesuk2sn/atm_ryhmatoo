@@ -34,29 +34,30 @@ public class Main {
         Konto konto = new Konto(nimi, kontojääk, pin );
         boolean aktiivne = true;
         System.out.println("Tere tulemast pangaautomaati " + konto.getNimi());
+        Ekraan.valjasta();
         while (aktiivne) {
-            Ekraan.valjasta();
+
             System.out.println("Sisestage toimingu number: ");
             int number = Integer.parseInt(sisend.nextLine());
             switch (number){
                 case (1):
-                System.out.println(konto.getKontoJääk());
-                break;
-                case(2):
-                System.out.println("Kui palju soovid raha arvele panna?");
-                int rahaSisse = Integer.parseInt(sisend.nextLine());
-                konto.kannaRahaArvele(rahaSisse);
-                konto.toString();
-                break;
-            case(3):
-                System.out.println("Kui palju soovid raha arvelt võtta?");
-                int rahaVälja = Integer.parseInt(sisend.nextLine());
-                if( rahaVälja > konto.getKontoJääk()){
-                    System.out.println("Teie kontolt ei saa nii palju raha välja võtta");
+                    System.out.println(konto);
                     break;
+                case(2):
+                    System.out.print("Kui palju soovid raha arvele panna? ");
+                    int rahaSisse = Integer.parseInt(sisend.nextLine());
+                    konto.kannaRahaArvele(rahaSisse);
+                    System.out.println(konto);
+                    break;
+                case(3):
+                    System.out.println("Kui palju soovid raha arvelt võtta?");
+                    int rahaVälja = Integer.parseInt(sisend.nextLine());
+                    if( rahaVälja > konto.getKontoJääk()){
+                        System.out.println("Teie kontolt ei saa nii palju raha välja võtta");
+                        break;
                 }
                 konto.võtaRahaArvelt(rahaVälja);
-                konto.toString();
+                System.out.println(konto);
                 break;
                 case(4):
                 System.out.println("Sisestage vana PIN: ");
