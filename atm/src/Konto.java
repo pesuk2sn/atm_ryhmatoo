@@ -2,12 +2,13 @@ public class Konto {
     private String nimi;
     private int kontoJääk;
     private String pin;
+    private String isikukood;
 
-
-    public Konto(String nimi, int kontoJääk, String pin) {
+    public Konto(String nimi, int kontoJääk, String pin, String isikukood) {
         this.nimi = nimi;
         this.kontoJääk = kontoJääk;
         this.pin = pin;
+        this.isikukood=isikukood;
     }
 
     public void setNimi(String nimi) {
@@ -17,6 +18,9 @@ public class Konto {
     public void setKontoJääk(int kontoJääk) {
         this.kontoJääk = kontoJääk;
 
+    }
+    public String getIsikukood() {
+        return isikukood;
     }
 
     public String getPin() {
