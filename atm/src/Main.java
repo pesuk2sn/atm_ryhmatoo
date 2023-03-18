@@ -1,10 +1,14 @@
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
         int kontojääk = 0;
         String nimi = null;
         String isikukood=null;
@@ -42,7 +46,7 @@ public class Main {
         System.out.println("Tere tulemast pangaautomaati " + konto.getNimi());
         while (aktiivne) {
             Ekraan.valjasta();
-            System.out.println("Sisestage toimingu number: ");
+            System.out.print("Sisestage toimingu number: ");
             int number = Integer.parseInt(sisend.nextLine());
             switch (number){
                 case (1):
@@ -82,6 +86,15 @@ public class Main {
                     System.out.println(konto);
                     break;
                 case(4):
+                    System.out.println("Sisestage oma isikukood: ");
+                    String kontrollIsikukood = sisend.nextLine();
+                    if (kontrollIsikukood.equals(konto.getIsikukood())){
+
+                        }
+                    else {
+                        System.out.println("Sisestasite vale isikukoodi, viin tagasi menüüsse");
+                        break;
+                        }
                     System.out.println("Sisestage vana PIN: ");
                     for (int i = 1; i <= 3; i++) {
                         String vanaPin = sisend.nextLine();
@@ -107,6 +120,14 @@ public class Main {
                         }
                     }
                 break;
+                case(5):
+                    FileWriter failiKirjutaja = new FileWriter("kviitung.txt");
+                    int kviitungiNumber = (int)(Math.random()*((9999-1000)+1))+1000;
+                    failiKirjutaja.write("Kviitungi nr: "+ kviitungiNumber +", kliendi nimi: "+konto.getNimi()+", kuupäev: " + LocalDate.now());
+                    failiKirjutaja.close();
+                    System.out.println("Kviitung kirjutatud");
+                    break;
+
             case(6):
                 System.out.println("Peatse kohtumiseni!");
                 aktiivne=false;
