@@ -13,14 +13,14 @@ public class Main {
         String nimi = null;
         String isikukood=null;
         Failihaldur haldur = new Failihaldur();
-        List<String[]> read = haldur.loeAndmed();
+        List<String[]> read = haldur.loeAndmed(); //Loeb iga rea listi
         for (String[] elem : read) {
             System.out.println(Arrays.toString(elem));
         }
         Scanner sisend = new Scanner(System.in);
         System.out.println("Sisestage PIN/Uue konto loomiseks sisestage 'UUS': ");
         String pin = sisend.nextLine();
-        if(pin.equals("UUS")){
+        if(pin.equals("UUS")){ //uue kasutaja loomine
             System.out.println("Sisestage uue konto PIN: ");
             String uuspin=sisend.nextLine();
             System.out.println("Sisestage uue konto omaniku ees ja perenimi: ");
@@ -33,7 +33,7 @@ public class Main {
             System.out.println("Konto loodud! Käivitage protsess uuesti et edasisi tegevusi jätkata.");
             return;
         }
-        for (String[] elem : read) {
+        for (String[] elem : read) { //Leiab otsitava PINi järgi konto andmed
             if (elem[0].equals(pin)) {
                 kontojääk = Integer.parseInt(elem[3]);
                 nimi = elem[1];
@@ -44,15 +44,17 @@ public class Main {
         Konto konto = new Konto(nimi, kontojääk, pin, isikukood);
         boolean aktiivne = true;
         System.out.println("Tere tulemast pangaautomaati " + konto.getNimi());
+        System.out.println();
+        System.out.println();
+        Ekraan.valjasta();
         while (aktiivne) {
-            Ekraan.valjasta();
             System.out.print("Sisestage toimingu number: ");
             int number = Integer.parseInt(sisend.nextLine());
             switch (number){
-                case (1):
+                case (1): //Konto jäägi kuvamine
                     System.out.println(konto);
                     break;
-                case(2):
+                case(2): //Raha arvele panemine
                     System.out.print("Kui palju soovid raha arvele panna? ");
                     int rahaSisse = Integer.parseInt(sisend.nextLine());
                     konto.kannaRahaArvele(rahaSisse);
@@ -65,7 +67,7 @@ public class Main {
                     }
                     System.out.println(konto);
                     break;
-                case(3):
+                case(3): //Raha arvelt võtmine
                     System.out.println("Kui palju soovid raha arvelt võtta?");
                     int rahaVälja = Integer.parseInt(sisend.nextLine());
                     if( rahaVälja > konto.getKontoJääk()){
@@ -85,7 +87,7 @@ public class Main {
                     }
                     System.out.println(konto);
                     break;
-                case(4):
+                case(4): //PIN koodi muutmine
                     System.out.println("Sisestage oma isikukood: ");
                     String kontrollIsikukood = sisend.nextLine();
                     if (kontrollIsikukood.equals(konto.getIsikukood())){
@@ -120,7 +122,7 @@ public class Main {
                         }
                     }
                 break;
-                case(5):
+                case(5): //Kviitungi kirjutamine tekstifaili
                     FileWriter failiKirjutaja = new FileWriter("kviitung.txt");
                     int kviitungiNumber = (int)(Math.random()*((9999-1000)+1))+1000;
                     failiKirjutaja.write("Kviitungi nr: "+ kviitungiNumber +", kliendi nimi: "+konto.getNimi()+", kuupäev: " + LocalDate.now());
@@ -128,12 +130,12 @@ public class Main {
                     System.out.println("Kviitung kirjutatud");
                     break;
 
-            case(6):
+            case(6): //Lõpetab main funktsiooni
                 System.out.println("Peatse kohtumiseni!");
                 aktiivne=false;
                 break;
             }
         }
-        haldur.kirjutaAndmed(read);
+        haldur.kirjutaAndmed(read); //kirjutab uuesti andmed üle
     }
 }
