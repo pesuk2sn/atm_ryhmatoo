@@ -1,3 +1,18 @@
+/*********************************************************************
+Joonase tegevused:
+-failist lugemine
+-info krüpteerimine ja dekrüpteerimine,
+-faili kirjutamine
+-konto loomine
+-PIN koodi muutmine ATM-is
+
+Roberti tegevused:
+-ATM teavitustekstid
+-konto isendi loomine sisestuse järgi
+-erinevad tegevused kontol(raha sisse ja välja, jäägi vaatamine)
+-kviitungi kirjutamine teksti
+*********************************************************************/
+
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -6,6 +21,7 @@ import java.util.List;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
+
 
 public class Main {
     public static void main(String[] args) throws IOException {
