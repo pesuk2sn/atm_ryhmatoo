@@ -2,7 +2,6 @@ Pangaautomaadi programm
 
 Tehtud:
  - Read me fail
-Teha:
  - input output saamine
  - pangakonto loomine
  - pangakonto arve muutmine
@@ -11,6 +10,7 @@ Teha:
  Joonas:
  šifreerimine(random kasutamine)
  Faili kirjutamine
+ Kõik failiga seonduv, uute kontode loomine jms.
  
  Robert:
  Erinevad ATM funktsioonid
