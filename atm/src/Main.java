@@ -1,16 +1,47 @@
 /*********************************************************************
-Joonase tegevused:
--failist lugemine
--info krüpteerimine ja dekrüpteerimine,
--faili kirjutamine
--konto loomine
--PIN koodi muutmine ATM-is
-
-Roberti tegevused:
--ATM teavitustekstid
--konto isendi loomine sisestuse järgi
--erinevad tegevused kontol(raha sisse ja välja, jäägi vaatamine)
--kviitungi kirjutamine teksti
+ *
+ *
+ * Projekti autorid: Robert Juhkam, Joonas Tiitson
+ *
+ * Projekti kirjeldus: Projektiks on töötav pangaautomaat(ATM) erinevate funktsioonidega,
+ * kus saab kasutaja teha erinevaid toiminguid. Lisaks on programmi sisse implementeeritud krüpteerimine ja kontode loomine.
+ * Programmi käivitamise alguses saab kas siseneda juba valmis tehtyd kasutaja kontoga  või teha uue konto.
+ * ATM funktsioonide kasutamine käib numbritega(iga fun. on kindla numbri all).
+ *
+ * Klasside eesmärgid: Ekraan - prindib välja pangaautomaadi teksti
+ * Konto - isendi konto loomiseks mõeldud klass
+ * Failihaldur - failist lugemine, krüpteerimine, dekrüpteerimine ja uue konto loomine ja selle kirjutamine faili
+ * Main - Põhifunktsioonide ja nende kasutamine
+ * Olulisemad meetodid ja kirjeldused on toodud välja kommentaarina meetodi juures
+ *
+ * Protsess - mõlemad tegelesime enda ülesannetega iseseisvalt. Kuna meie ülesanded olid küllaltki erinevad, ei pidanud üksteise järel ootama.
+ * Alguses tegi Joonas valmis esialgse faili, mis oli krüpteeritud ja kus olid kontode andmed. Nendega sai Robert edasi toimetada, lugedes need konto isendisse.
+ * Seejärel sai selle isendiga erinevaid funktsioone luua, mida tavaliselt ATMides kasutatakse
+ *
+ *Joonase tegevused:
+ *failist lugemine(0.5h)
+ *info krüpteerimine ja dekrüpteerimine(3h)
+ *faili kirjutamine(0.5h)
+ *konto loomine(0.5h)
+ *PIN koodi muutmine ATM-is(0.5h)
+ *
+ *Roberti tegevused:
+ *ATM teavitustekstid(0.5h)
+ *konto isendi loomine sisestuse järgi(0.3h)
+ *erinevad tegevused kontol(raha sisse ja välja, jäägi vaatamine)(3h)
+ *kviitungi kirjutamine teksti(1h)
+ *
+ * Mured: kuna võtsime jõukohase teema, siis probleeme projekti tegemisel ei esinenud.
+ * Samuti on Joonas sarnase krüpteerimise projektiga juba varem tegelenud.
+ *
+ * Hinnang: Mõlemad rühmaliikmed jäid oma tulemusega rahule. Programm teeb seda mida vajab. Projekt pole nii lihtne aga samas ka mitte liiga raske.
+ * Arvame, et saime hästi hakkama meetodite koostamisega. Paremini oleks saanud teha main klassi, sest hetkel on see liiga kohmakas ja raske on järge ajada.
+ * Saaks teha veel klasse, et sinna viia main klassis kasutatavaid meetodeid.
+ *
+ * Testimine: programmi sai testitud klassi kaupa. Kuna klasse sai eraldi iseseisvalt testida, polnud vaja eeltingimusteks teisi klasse.
+ * Kui programmi mingi klass töötas, siis leidis see kohe ka põhiprogrammis rakendust. Igasuguste muudatuste tegemisel kasutasime Githubi, et kursis olla, mida teine rühmaliige tegi.
+ *
+ *
 *********************************************************************/
 
 import java.io.FileNotFoundException;
@@ -97,9 +128,6 @@ public class Main {
                             read.set(read.indexOf(elem), elem);
                             break;
                         }
-                    }
-                    for(String[] elem:read){
-                        System.out.println(Arrays.toString(elem));
                     }
                     System.out.println(konto);
                     break;
